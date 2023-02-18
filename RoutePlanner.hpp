@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <cstdlib>
 
 struct Star
 {
@@ -22,3 +23,5 @@ struct Node {
 };
 
 Node* makeRoute(Star& start, Star& end);
+
+Node* makeNode(Star& data);
