@@ -17,3 +17,15 @@ Node* makeNode(Star& data){
 
     return ptr;
 }
+
+int insertStarAtFront(Node** list, Star& insert){
+    Node* pMem = makeNode(insert);
+    int success = 0;
+
+    if(pMem != NULL){
+        pMem->pNext = *list;
+        *list = pMem;
+        success = 1;
+    }
+    return success;
+}

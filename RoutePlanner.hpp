@@ -25,3 +25,5 @@ struct Node {
 Node* makeRoute(Star& start, Star& end);
 
 Node* makeNode(Star& data);
+
+int insertStarAtFront(Star& list, Star& insert);
