@@ -17,7 +17,6 @@ class DataParser
 };
 
 struct Node {
-	std::string name;
 	Star star;
 	Node* pNext;
 };
