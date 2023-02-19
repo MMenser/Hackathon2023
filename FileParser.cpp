@@ -1,6 +1,6 @@
 #include "FileParser.hpp"
 
-int fillArr(fstream& infile, Star starArr[300]) {
+int fillArr(std::fstream& infile, Star starArr[300]) {
 	std::string line;
 	std::string doubleStr;
 	char* tok;
@@ -15,17 +15,17 @@ int fillArr(fstream& infile, Star starArr[300]) {
 				if (i == 0) {
 					tok = strtok(strArr, ",");
 					doubleStr = doubleStr + tok;
-					starArr[count].x = std::stod(doubleStr);
+					starArr[count].gal_x = std::stod(doubleStr);
 				}
 				else if (i == 1) {
 					tok = strtok(NULL, ",");
 					doubleStr = doubleStr + tok;
-					starArr[count].y = std::stod(doubleStr);
+					starArr[count].gal_y = std::stod(doubleStr);
 				}
 				else {
 					tok = strtok(NULL, ",");
 					doubleStr = doubleStr + tok;
-					starArr[count].z = std::stod(doubleStr);
+					starArr[count].gal_z = std::stod(doubleStr);
 				}
 				doubleStr = "";
 
