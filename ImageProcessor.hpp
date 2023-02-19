@@ -8,19 +8,24 @@ class ImageProcessor
 {
 public:
     bitmap_image image;
+    
+    double lightyearsPerPixel;
 
     //Color templates
     rgb_t white;
     rgb_t gray;
     rgb_t black;
 
-//public:
     //Constructors
     ImageProcessor();
-    ImageProcessor(int width, int height);
+    ImageProcessor(int pixel_width, int pixel_height);
     ImageProcessor(bitmap_image& image);
-    ImageProcessor(ImageProcessor& copy); 
+    ImageProcessor(ImageProcessor& copy);
+
+    void getColorTemplates();
     
+    void getLightyearsPerPixel();
+
     //Paints Horizontal and Vertical gridlines, alligning at the origin.
     void plotSquareGrid(rgb_t color);
 
@@ -33,3 +38,4 @@ public:
     //Colors everything within radius r of the given point.
     void drawCircleAtPoint(int x, int y, int radius, rgb_t color);
 };
+
