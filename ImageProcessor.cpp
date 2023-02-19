@@ -67,7 +67,7 @@ void ImageProcessor::getLightyearsPerPixel(struct Star stars[], int numStars)
     }
 
     //Scale the lightyear-pixel ration based on the range of coordinate values.
-    
+
 }
 
 //Paints Horizontal and Vertical gridlines, alligning at the origin.
@@ -121,7 +121,7 @@ double getDistance(Star& first, Star& second) {
     return distance;
 }
 
-struct Star getClosestStar(int x, int y, struct Star sortedStars[])
+void ImageProcessor::outputBMP(std::string fileName)
 {
-    
+    image.save_image(fileName + ".bmp");
 }

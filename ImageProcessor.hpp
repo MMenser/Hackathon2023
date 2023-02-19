@@ -38,5 +38,7 @@ public:
 
     //Colors everything within radius r of the given point.
     void drawCircleAtPoint(int x, int y, int radius, rgb_t color);
+
+    void outputBMP(std::string fileName);
 };
 
