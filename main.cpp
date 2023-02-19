@@ -1,6 +1,7 @@
 
 #include "ImageProcessor.hpp"
 #include "Libraries/bitmap/bitmap_image.hpp"
+#include "RoutePlanner.hpp"
 
 
 int main(void)
