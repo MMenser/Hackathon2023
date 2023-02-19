@@ -31,14 +31,20 @@ int insertAtEnd(Node** list, Star& insert) {
     int success = 0;
 
     if (pMem != NULL) {
+        
         while (pCur != NULL) {
             pPrev = pCur;
             pCur = pCur->pNext;
         }
-        pPrev->pNext = pMem;
-        pMem->pNext = NULL;
+        if (*list == NULL) {//if list is empty
+            *list = pMem;
+        }
+        else {
+            pPrev->pNext = pMem;
+            pMem->pNext = NULL;
+            
+        }
         success = 1;
-
     }
     return success;
 }
@@ -114,22 +120,30 @@ Star* findStarInDirection(Star starArr[], Star& origin, int direction[]) {
     return bestStar;
 }
 
-Node* makeRoute(Star& start, Star end, Star starArr[]) {
+Node* makeRoute(Star& start, Star& end, Star starArr[]) {
     Node* list = NULL;
     int direction[3] = { 0, 0, 0 };
     std::string nameCur = "";
+    Star *current = &start;
 
-    if (end.gal_x > start.gal_x) {//If moving in positive x
-        direction[0] = 1;
-    }
-    if (end.gal_y > start.gal_y) {//If moving in positive y
-        direction[1] = 1;
-    }
-    if (end.gal_z > start.gal_z) {//If moving in positive z
-        direction[1] = 2;
-    }
+    insertAtFront(&list, start);
 
     while (start.name != nameCur) {
+        //First check directions (can't just do at beginning, what if we pass it on one axis?)
+        if (end.gal_x > start.gal_x) {//If moving in positive x
+            direction[0] = 1;
+        }
+        if (end.gal_y > start.gal_y) {//If moving in positive y
+            direction[1] = 1;
+        }
+        if (end.gal_z > start.gal_z) {//If moving in positive z
+            direction[1] = 2;
+        }
 
+        current = findStarInDirection(starArr, *current, direction);
+        insertAtEnd(&list, *current);
+        nameCur = current->name;
     }
+
+    return list;
 }

@@ -46,6 +46,5 @@ double getDistance(Star& first, Star& second);
 //Precondition: input array should be an array of size 3, where [0] = x, [1] = y, and [2] = z, 1 for positive, 0 for negative
 Star* findStarInDirection(Star starArr[], Star& origin, int direction[]);
 
-//Finds a route using short jumps to eventually go from start to end, (end isn't by reference since it gets changed in function,
-//but it probably shouldn't actually be changed
-Node* makeRoute(Star& start, Star end, Star starArr[]);
+//Finds a route using short jumps to eventually go from start to end
+Node* makeRoute(Star& start, Star& end, Star starArr[]);
