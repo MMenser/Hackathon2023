@@ -9,8 +9,14 @@ class ImageProcessor
 public:
     bitmap_image image;
 
+    //Color templates
+    rgb_t white;
+    rgb_t gray;
+    rgb_t black;
+
 //public:
     //Constructors
+    ImageProcessor();
     ImageProcessor(int width, int height);
     ImageProcessor(bitmap_image& image);
     ImageProcessor(ImageProcessor& copy); 

@@ -5,6 +5,13 @@
 //bitmap_image documentation:
 //http://www.partow.net/programming/bitmap/index.html#simpleexample01
     
+ImageProcessor::ImageProcessor()
+{
+    white = make_colour(255, 255, 255);
+    gray = make_colour(128, 128, 128);
+    black = make_colour(0, 0, 0);
+}
+
 ImageProcessor::ImageProcessor(int width, int height)
 {
     //Create a blank image.
