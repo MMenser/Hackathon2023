@@ -4,10 +4,9 @@ Node* makeNode(Star& data){
     Node* ptr = new Node();
 
     if(ptr != NULL){
-        ptr->star.name = data.name;
         ptr->star.gal_x = data.gal_x;
-        ptr->star.gal_x = data.gal_y;
-        ptr->star.gal_x = data.gal_z;
+        ptr->star.gal_y = data.gal_y;
+        ptr->star.gal_z = data.gal_z;
         ptr->star.luminocity = data.luminocity;
     }
 
@@ -53,7 +52,7 @@ void printList(Node* list){
     Node* pCur = list;
 
     while(pCur != NULL){
-        std::cout << pCur->star.name << " -> ";
+        std::cout << pCur->star.gal_x << ", " << pCur->star.gal_y << ", " << pCur->star.gal_z << std::endl;
         pCur = pCur->pNext;
     }
 }
@@ -71,7 +70,7 @@ double getDistance(Star& first, Star& second) {
 
 Star* findStarInDirection(Star starArr[], Star& origin, int direction[]) {
     int isValidStar = 0; //Needs to be 3 for the star to actually be valid
-    double minDistance = 0.0, testDistance = 0.0;
+    double minDistance = 3000.0, testDistance = 0.0;
     Star* bestStar = NULL;
 
     for (int i = 0; i < ARR_SIZE; i++) {
@@ -109,10 +108,10 @@ Star* findStarInDirection(Star starArr[], Star& origin, int direction[]) {
         }
 
         if (isValidStar == 3) {//If this star is in the right direction
-            testDistance = getDistance(origin, starArr[i]) < minDistance;
+            testDistance = getDistance(origin, starArr[i]);
             if (testDistance < minDistance) {//If the distance to this star is shorter than the shortest checked so far
                 minDistance = testDistance;
-                *bestStar = starArr[i];
+                bestStar = &starArr[i];
             }
         }
         isValidStar = 0;
@@ -123,27 +122,35 @@ Star* findStarInDirection(Star starArr[], Star& origin, int direction[]) {
 Node* makeRoute(Star& start, Star& end, Star starArr[]) {
     Node* list = NULL;
     int direction[3] = { 0, 0, 0 };
-    std::string nameCur = "";
-    Star *current = &start;
+    Star* current = &start, * prevStar = NULL;
 
     insertAtFront(&list, start);
 
-    while (start.name != nameCur) {
+    do {
+        prevStar = current;
         //First check directions (can't just do at beginning, what if we pass it on one axis?)
-        if (end.gal_x > start.gal_x) {//If moving in positive x
+        if (end.gal_x > current->gal_x) {//If moving in positive x
             direction[0] = 1;
         }
-        if (end.gal_y > start.gal_y) {//If moving in positive y
+        if (end.gal_y > current->gal_y) {//If moving in positive y
             direction[1] = 1;
         }
-        if (end.gal_z > start.gal_z) {//If moving in positive z
-            direction[1] = 2;
+        if (end.gal_z > current->gal_z) {//If moving in positive z
+            direction[1] = 1;
         }
 
         current = findStarInDirection(starArr, *current, direction);
+
+        if (getDistance(*prevStar, *current) > getDistance(*prevStar, end)) {
+            current = &end;
+        }
+
         insertAtEnd(&list, *current);
-        nameCur = current->name;
-    }
+        //Reset direction array
+        direction[0] = 0;
+        direction[1] = 0;
+        direction[2] = 0;
+    } while (end.gal_x != current->gal_x && end.gal_y != current->gal_y && end.gal_z != current->gal_z);
 
     return list;
 }

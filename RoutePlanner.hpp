@@ -11,11 +11,9 @@
 
 struct Star
 {
-	std::string name;
 	double gal_x = 0.0;
 	double gal_y = 0.0;
 	double gal_z = 0.0;
-	double mass_kg = 0.0;
 	double luminocity = 0.0;
 };
 
