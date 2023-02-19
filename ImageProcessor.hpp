@@ -22,9 +22,11 @@ public:
     ImageProcessor(bitmap_image& image);
     ImageProcessor(ImageProcessor& copy);
 
+    //
     void getColorTemplates();
     
-    void getLightyearsPerPixel();
+    //Calculates a workable ratio for light years to pixels.
+    void getLightyearsPerPixel(struct Star stars[], int numStars);
 
     //Paints Horizontal and Vertical gridlines, alligning at the origin.
     void plotSquareGrid(rgb_t color);

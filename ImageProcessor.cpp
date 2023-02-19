@@ -39,6 +39,37 @@ void ImageProcessor::getColorTemplates()
     black = make_colour(0, 0, 0);
 }
 
+//Calculates a workable ratio for light years to pixels.
+void ImageProcessor::getLightyearsPerPixel(struct Star stars[], int numStars)
+{
+    double min_x = stars[0].gal_x, max_x = min_x,
+           min_y = stars[0].gal_y, max_y = min_y;
+
+    //Find the largest and smallest x and y values.
+    for (int i = 1; i < numStars; i++)
+    {
+        if (stars[i].gal_x > max_x)
+        {
+            max_x = stars[i].gal_x;
+        } 
+        else if (stars[i].gal_x < min_x)
+        {
+            min_x = stars[i].gal_x;
+        }
+        if (stars[i].gal_y > max_y)
+        {
+            max_x = stars[i].gal_y;
+        } 
+        else if (stars[i].gal_y < min_y)
+        {
+            min_x = stars[i].gal_y;
+        }
+    }
+
+    //Scale the lightyear-pixel ration based on the range of coordinate values.
+    
+}
+
 //Paints Horizontal and Vertical gridlines, alligning at the origin.
 void ImageProcessor::plotSquareGrid(rgb_t color)
 {
@@ -50,8 +81,6 @@ void ImageProcessor::plotRadialGrid(size_t color)
 {
     //TODO: do this
 }
-
-
 
 //Marks every star location as a colored point on the image.
 void ImageProcessor::plotStarLocations(Star stars[], int numStars, int radius, rgb_t color)
