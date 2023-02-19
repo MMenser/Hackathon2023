@@ -14,7 +14,7 @@ Node* makeNode(Star& data){
     return ptr;
 }
 
-int insertStarAtFront(Node** list, Star& insert){
+int insertAtFront(Node** list, Star& insert){
     Node* pMem = makeNode(insert);
     int success = 0;
 
@@ -22,6 +22,23 @@ int insertStarAtFront(Node** list, Star& insert){
         pMem->pNext = *list;
         *list = pMem;
         success = 1;
+    }
+    return success;
+}
+
+int insertAtEnd(Node** list, Star& insert) {
+    Node* pMem = makeNode(insert), * pCur = *list, * pPrev = NULL;
+    int success = 0;
+
+    if (pMem != NULL) {
+        while (pCur != NULL) {
+            pPrev = pCur;
+            pCur = pCur->pNext;
+        }
+        pPrev->pNext = pMem;
+        pMem->pNext = NULL;
+        success = 1;
+
     }
     return success;
 }
@@ -97,6 +114,22 @@ Star* findStarInDirection(Star starArr[], Star& origin, int direction[]) {
     return bestStar;
 }
 
-Node* makeRoute(Star& start, Star& end) {
+Node* makeRoute(Star& start, Star end, Star starArr[]) {
     Node* list = NULL;
+    int direction[3] = { 0, 0, 0 };
+    std::string nameCur = "";
+
+    if (end.gal_x > start.gal_x) {//If moving in positive x
+        direction[0] = 1;
+    }
+    if (end.gal_y > start.gal_y) {//If moving in positive y
+        direction[1] = 1;
+    }
+    if (end.gal_z > start.gal_z) {//If moving in positive z
+        direction[1] = 2;
+    }
+
+    while (start.name != nameCur) {
+
+    }
 }
