@@ -1,4 +1,5 @@
 //
+#include "RoutePlanner.hpp"
 #include "Libraries/bitmap/bitmap_image.hpp"
 
 //Draw a dot at a certain point.
@@ -21,7 +22,7 @@ public:
     void plotRadialGrid(size_t color);
 
     //Marks every star location as a colored point on the image.
-    void plotStarLocations(size_t color);
+    void plotStarLocations(Star stars[], int numStars, int radius, rgb_t color);
 
     //Colors everything within radius r of the given point.
     void drawCircleAtPoint(int x, int y, int radius, rgb_t color);

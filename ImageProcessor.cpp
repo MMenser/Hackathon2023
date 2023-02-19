@@ -2,6 +2,7 @@
 #include "RoutePlanner.hpp"
 #include "ImageProcessor.hpp"
     
+//bitmap_image documentation:
 //http://www.partow.net/programming/bitmap/index.html#simpleexample01
     
 ImageProcessor::ImageProcessor(int width, int height)
@@ -35,9 +36,13 @@ void ImageProcessor::plotRadialGrid(size_t color)
 }
 
 //Marks every star location as a colored point on the image.
-void ImageProcessor::plotStarLocations(size_t color)
+void ImageProcessor::plotStarLocations(Star stars[], int numStars, int radius, rgb_t color)
 {
-    //TODO: do this
+    //Draws circles with 3 pixel radei.
+    for (int i = 0; i < numStars; i++)
+    {
+        drawCircleAtPoint(stars[i].gal_x, stars[i].gal_y, 3, color);
+    }
 }
 
 //Colors everything within radius r of the given point.
