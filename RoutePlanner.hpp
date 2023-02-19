@@ -29,7 +29,7 @@ Node* makeRoute(Star& start, Star& end);
 Node* makeNode(Star& data);
 
 //Inserts a star at the beginning of the list
-int insertStarAtFront(Star** list, Star& insert);
+int insertStarAtFront(Node** list, Star& insert);
 
 //Prints the list
-void printList(Star& list);
+void printList(Node* list);

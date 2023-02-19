@@ -1,8 +1,8 @@
 #include "RoutePlanner.hpp"
 
-Node* makeRoute(Star& start, Star& end) {
-    Node* 
-}
+// Node* makeRoute(Star& start, Star& end) {
+//     Node* 
+// }
 
 Node* makeNode(Star& data){
     Node* ptr = (Node*)malloc(sizeof(Node));
@@ -28,4 +28,13 @@ int insertStarAtFront(Node** list, Star& insert){
         success = 1;
     }
     return success;
+}
+
+void printList(Node* list){
+    Node* pCur = list;
+
+    while(pCur != NULL){
+        std::cout << pCur->star.name << " -> ";
+        pCur = pCur->pNext;
+    }
 }
