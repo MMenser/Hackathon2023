@@ -17,11 +17,6 @@ struct Star
 	double luminocity;
 };
 
-class DataParser
-{
-
-};
-
 struct Node {
 	Star star;
 	Node* pNext;
