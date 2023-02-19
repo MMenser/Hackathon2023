@@ -38,3 +38,14 @@ void printList(Node* list){
         pCur = pCur->pNext;
     }
 }
+
+double getDistance(Star& first, Star& second) {
+    double x2 = 0.0, y2 = 0.0, z2 = 0.0, distance = 0.0;
+
+    x2 = pow(second.gal_x - first.gal_x, 2);
+    y2 = pow(second.gal_y - first.gal_y, 2);
+    z2 = pow(second.gal_z - first.gal_z, 2);
+
+    distance = sqrt(x2 + y2 + z2);
+    return distance;
+}

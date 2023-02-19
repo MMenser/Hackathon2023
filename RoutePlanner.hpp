@@ -1,7 +1,9 @@
+#pragma once
 
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <cmath>
 
 struct Star
 {
@@ -34,3 +36,6 @@ int insertStarAtFront(Node** list, Star& insert);
 
 //Prints the list
 void printList(Node* list);
+
+//Finds the distance (in light years) between two stars
+double getDistanceBetweenStars(Star& first, Star& second);
