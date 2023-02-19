@@ -1,5 +1,7 @@
 #pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -11,11 +13,11 @@
 struct Star
 {
 	std::string name;
-	double gal_x;
-	double gal_y;
-	double gal_z;
-	double mass_kg;
-	double luminocity;
+	double gal_x = 0.0;
+	double gal_y = 0.0;
+	double gal_z = 0.0;
+	double mass_kg = 0.0;
+	double luminocity = 0.0;
 };
 
 struct Node {
