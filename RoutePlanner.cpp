@@ -49,3 +49,7 @@ double getDistance(Star& first, Star& second) {
     distance = sqrt(x2 + y2 + z2);
     return distance;
 }
+
+Star* findStarInDirection(Star& origin, int direction[]) {
+
+}

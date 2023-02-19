@@ -38,4 +38,7 @@ int insertStarAtFront(Node** list, Star& insert);
 void printList(Node* list);
 
 //Finds the distance (in light years) between two stars
-double getDistanceBetweenStars(Star& first, Star& second);
+double getDistance(Star& first, Star& second);
+
+//Finds the nearest star in a direction determined by the input array ({x, y, z}, 1 for positive, 0 for negative)
+Star* findStarInDirection(Star& origin, int direction[]);
