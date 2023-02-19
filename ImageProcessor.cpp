@@ -1,7 +1,7 @@
 
 #include "ImageProcessor.hpp"
     
-    
+//http://www.partow.net/programming/bitmap/index.html#simpleexample01
     
 ImageProcessor::ImageProcessor()
 {
