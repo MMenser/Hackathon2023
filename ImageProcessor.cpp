@@ -8,7 +8,7 @@ ImageProcessor::ImageProcessor(int width, int height)
 {
     //Create a blank image.
     bitmap_image newImage(width,height);
-    newImage.set_all_channels(255, 150, 50);
+    newImage.set_all_channels(0, 0, 0);
     image = newImage;
 }
 
@@ -35,7 +35,7 @@ void ImageProcessor::plotRadialGrid(size_t color)
 }
 
 //Marks every star location as a colored point on the image.
-void ImageProcessor::plotLocations(size_t color)
+void ImageProcessor::plotStarLocations(size_t color)
 {
     //TODO: do this
 }
@@ -46,5 +46,9 @@ void ImageProcessor::drawCircleAtPoint(int x, int y, int radius, rgb_t color)
     image_drawer draw(image);
     draw.pen_width(2);
     draw.pen_color(color.red, color.green, color.blue);
-    draw.circle(x, y, radius);
+    
+    for (int i = radius; i > 0; i--)
+    {
+        draw.circle(x, y, i);
+    }
 }

@@ -21,7 +21,7 @@ public:
     void plotRadialGrid(size_t color);
 
     //Marks every star location as a colored point on the image.
-    void plotLocations(size_t color);
+    void plotStarLocations(size_t color);
 
     //Colors everything within radius r of the given point.
     void drawCircleAtPoint(int x, int y, int radius, rgb_t color);
