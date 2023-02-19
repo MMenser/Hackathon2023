@@ -5,17 +5,17 @@
 
 //Currently only used for testing purposes (on this branch)
 int main(void)
-{
+{ 
+  std::cout << "Hello World 5" << std::endl;
+ 
   bitmap_image newImage(200,200);
+  
+  image_drawer draw(newImage);
+    draw.pen_width(4);
+    draw.pen_color(100, 0, 0);
+    draw.circle(100, 100, 20);
+ 
+    newImage.save_image("output.bmp");
 
-  ImageProcessor imgProcessor(newImage);
-
-  rgb_t color;
-  color.red = 100;
-  color.green = 0;
-  color.blue = 0;
-
-  imgProcessor.drawCircleAtPoint(100,100, 20, color);
-
-  imgProcessor.image.save_image("test.bmp");
-}
+    return 0;
+};
