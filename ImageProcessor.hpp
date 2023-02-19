@@ -1,5 +1,5 @@
 //
-#include "bitmap_image.hpp"
+#include "Libraries/bitmap/bitmap_image.hpp"
 
 //Draw a dot at a certain point.
 
