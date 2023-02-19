@@ -6,16 +6,23 @@
 //Currently only used for testing purposes (on this branch)
 int main(void)
 { 
-  std::cout << "Hello World 5" << std::endl;
+  std::cout << "Hello World X" << std::endl;
  
   bitmap_image newImage(200,200);
   
-  image_drawer draw(newImage);
-    draw.pen_width(4);
-    draw.pen_color(100, 0, 0);
-    draw.circle(100, 100, 20);
- 
-    newImage.save_image("output.bmp");
+  ImageProcessor ip(200,200);
 
-    return 0;
+  rgb_t color;
+  color.red = 100; 
+  color.green = 0;
+  color.blue = 200;
+
+  image_drawer draw(ip.image);
+  draw.pen_width(2);
+  draw.pen_color(color.red, color.green, color.blue);
+  draw.circle(100, 100, 20);
+ 
+  newImage.save_image("test.bmp");
+
+  return 0;
 };

@@ -9,8 +9,8 @@ public:
     bitmap_image image;
 
 //public:
-    //Constructorsß
-    ImageProcessor(void);
+    //Constructors
+    ImageProcessor(int width, int height);
     ImageProcessor(bitmap_image& image);
     ImageProcessor(ImageProcessor& copy); 
     

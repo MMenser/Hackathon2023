@@ -4,12 +4,11 @@
     
 //http://www.partow.net/programming/bitmap/index.html#simpleexample01
     
-ImageProcessor::ImageProcessor()
+ImageProcessor::ImageProcessor(int width, int height)
 {
     //Create a blank image.
-    bitmap_image newImage(200,200);
+    bitmap_image newImage(width,height);
     newImage.set_all_channels(255, 150, 50);
-    
     image = newImage;
 }
 
