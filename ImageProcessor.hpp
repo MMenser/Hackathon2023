@@ -1,20 +1,32 @@
 #pragma once
 
+#include "RoutePlanner.hpp"
 #include "Libraries/bitmap/bitmap_image.hpp"
-
-//Draw a dot at a certain point.
 
 class ImageProcessor
 {
 public:
     bitmap_image image;
-
-//public:
-    //Constructors
-    ImageProcessor(int width, int height);
-    ImageProcessor(bitmap_image& image);
-    ImageProcessor(ImageProcessor& copy); 
     
+    double lightyearsPerPixel;
+
+    //Color templates
+    rgb_t white;
+    rgb_t gray;
+    rgb_t black;
+
+    //Constructors
+    ImageProcessor();
+    ImageProcessor(int pixel_width, int pixel_height);
+    ImageProcessor(bitmap_image& image);
+    ImageProcessor(ImageProcessor& copy);
+
+    //
+    void getColorTemplates();
+    
+    //Calculates a workable ratio for light years to pixels.
+    void getLightyearsPerPixel(struct Star stars[], int numStars);
+
     //Paints Horizontal and Vertical gridlines, alligning at the origin.
     void plotSquareGrid(rgb_t color);
 
@@ -22,8 +34,9 @@ public:
     void plotRadialGrid(size_t color);
 
     //Marks every star location as a colored point on the image.
-    void plotStarLocations(size_t color);
+    void plotStarLocations(Star stars[], int numStars, int radius, rgb_t color);
 
     //Colors everything within radius r of the given point.
     void drawCircleAtPoint(int x, int y, int radius, rgb_t color);
 };
+
