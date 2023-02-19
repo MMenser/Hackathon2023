@@ -5,7 +5,7 @@
 // }
 
 Node* makeNode(Star& data){
-    Node* ptr = (Node*)malloc(sizeof(Node));
+    Node* ptr = new Node();
 
     if(ptr != NULL){
         ptr->star.name = data.name;
