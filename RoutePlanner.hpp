@@ -12,9 +12,9 @@ private:
   double luminocity;
 public:
   std::string getName();
-}
+};
 
-class DataParser
-{
+//class DataParser
+//{
 
-}
+//}

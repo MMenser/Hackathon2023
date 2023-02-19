@@ -1,4 +1,7 @@
 
+#include "ImageProcessor.hpp"
+#include "Libraries/bitmap/bitmap_image.hpp"
+
 
 int main(void)
 {
@@ -9,7 +12,6 @@ int main(void)
 	int count = fillArr(infile, starArr);
 
 	return 0;
-  return 0;
 }
 
 int fillArr(fstream& infile, Star starArr[300]) {
