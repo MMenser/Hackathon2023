@@ -8,12 +8,13 @@
 int main(void)
 {
 	std::fstream infile;
+
 	infile.open("Positions.csv", std::ios::in);
 
 	Star starArr[300];
 	int count = fillArr(infile, starArr);
 
-	std::cout << starArr[0].name;
 
+	
 	return 0;
 }
