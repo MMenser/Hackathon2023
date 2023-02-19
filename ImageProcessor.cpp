@@ -67,6 +67,7 @@ void ImageProcessor::getLightyearsPerPixel(struct Star stars[], int numStars)
     }
 
     //Scale the lightyear-pixel ration based on the range of coordinate values.
+    
 
 }
 
